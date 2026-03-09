@@ -698,6 +698,7 @@ p {
 /* ── Waitlist Form ── */
 
 .waitlist-form {
+  width: 100%;
   max-width: 48rem;
   margin: 0 auto;
   background: #fff;
@@ -914,6 +915,7 @@ p {
 
   .max-width-xlarge { max-width: 100%; }
   .max-width-medium { max-width: 100%; }
+  .align-center { align-items: stretch; }
 
   /* Navbar: hide links, show logo + CTA only */
   .navbar-component { min-height: 3.5rem; padding-left: 1.25rem; padding-right: 1.25rem; }
