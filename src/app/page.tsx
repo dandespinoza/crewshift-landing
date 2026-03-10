@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Head from 'next/head';
 import './landing.css';
 
@@ -67,8 +67,91 @@ function WaitlistForm({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
   );
 }
 
+function SplashScreen({ onDone }: { onDone: () => void }) {
+  const [showLogo, setShowLogo] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [fading, setFading] = useState(false);
+  const fullText = 'WELCOME TO CREWSHIFT';
+  const chars = fullText.split('');
+  const crewshiftStart = fullText.indexOf('CREWSHIFT');
+
+  useEffect(() => {
+    const logoTimer = setTimeout(() => setShowLogo(true), 100);
+
+    let i = 0;
+    const revealTimer = setTimeout(() => {
+      const interval = setInterval(() => {
+        i++;
+        setVisibleCount(i);
+        if (i >= chars.length) {
+          clearInterval(interval);
+          setTimeout(() => setFading(true), 800);
+          setTimeout(onDone, 1300);
+        }
+      }, 80);
+      return () => clearInterval(interval);
+    }, 500);
+
+    return () => {
+      clearTimeout(logoTimer);
+      clearTimeout(revealTimer);
+    };
+  }, [onDone, chars.length]);
+
+  return (
+    <div className={`splash-screen${fading ? ' splash-fade' : ''}`}>
+      <div className="splash-content">
+        <svg
+          className={`splash-logo${showLogo ? ' splash-logo-visible' : ''}`}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 198 230.25"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path fill="#ff751f" d="M 197.539062 114.640625 L 197.539062 190.546875 L 131.796875 228.503906 L 66.0625 190.546875 Z" />
+          <path fill="#ff751f" d="M 0.320312 152.589844 L 0.320312 76.6875 L 131.796875 0.78125 L 174.664062 25.527344 L 197.539062 38.730469 L 66.0625 114.640625 L 66.0625 190.546875 Z" />
+        </svg>
+        <span className="splash-text">
+          {chars.map((char, i) => (
+            <span
+              key={i}
+              className={`splash-char${i >= crewshiftStart ? ' splash-orange' : ''}${i < visibleCount ? ' splash-char-visible' : ''}`}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function LandingPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    // Scroll-triggered fade-in animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const faqs = [
     { q: 'What trades is this built for?', a: 'Plumbing, HVAC, electrical, roofing, general contracting. If you have techs in the field and an office that\'s drowning in admin, this is for you.' },
@@ -92,6 +175,7 @@ export default function LandingPage() {
 
   return (
     <>
+      {loading && <SplashScreen onDone={() => setLoading(false)} />}
       <Head>
         <title>CrewShift — AI Agents for Trade Businesses</title>
         <meta name="description" content="AI agents that handle invoicing, estimates, collections, and scheduling for HVAC, plumbing, electrical, and roofing companies." />
@@ -125,21 +209,21 @@ export default function LandingPage() {
                     <div className="margin-bottom margin-xlarge">
                       <div className="text-align-center">
                         <div className="max-width-xlarge align-center">
-                          <div className="hero-tag">
+                          <div className="hero-tag animate-on-scroll">
                             HVAC &middot; Plumbing &middot; Electrical &middot; Roofing &middot; GC
                           </div>
-                          <div className="margin-bottom margin-small">
+                          <div className="margin-bottom margin-small animate-on-scroll">
                             <h1>The back office that <span className="text-color-primary">runs without you</span></h1>
                           </div>
-                          <p className="text-size-medium max-width-medium">You didn&apos;t start a trade business to chase invoices and babysit schedules. CrewShift handles invoicing, estimates, collections, and dispatch — automatically — while you focus on the work that pays.</p>
+                          <p className="text-size-medium max-width-medium animate-on-scroll delay-1">You didn&apos;t start a trade business to chase invoices and babysit schedules. CrewShift handles invoicing, estimates, collections, and dispatch — automatically — while you focus on the work that pays.</p>
 
-                          <div className="margin-top margin-medium">
+                          <div className="margin-top margin-medium animate-on-scroll delay-2">
                             <WaitlistForm variant="light" />
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div className="header-image-wrapper">
+                    <div className="header-image-wrapper animate-on-scroll delay-3">
                       <img src="/hero-dashboard.svg" alt="CrewShift Dashboard" className="header-image" />
                     </div>
                   </div>
@@ -154,7 +238,7 @@ export default function LandingPage() {
               <div className="container-large">
                 <div className="padding-section-large">
                   <div className="w-layout-grid feature-component">
-                    <div className="feature-content-wrapper">
+                    <div className="feature-content-wrapper animate-on-scroll">
                       <div className="margin-bottom margin-small">
                         <h2>Not another dashboard. An actual team.</h2>
                       </div>
@@ -181,7 +265,7 @@ export default function LandingPage() {
                         ))}
                       </div>
                     </div>
-                    <div className="feature-image-wrapper">
+                    <div className="feature-image-wrapper animate-on-scroll delay-1">
                       <img src="/feature-agents.svg" alt="CrewShift AI Agents" className="feature-image" />
                     </div>
                   </div>
@@ -196,10 +280,10 @@ export default function LandingPage() {
               <div className="container-large">
                 <div className="padding-section-large">
                   <div className="w-layout-grid feature-component">
-                    <div className="feature-image-wrapper">
+                    <div className="feature-image-wrapper animate-on-scroll">
                       <img src="/hero-dashboard.svg" alt="CrewShift Dashboard" className="feature-image is-left" />
                     </div>
-                    <div className="feature-content-wrapper">
+                    <div className="feature-content-wrapper animate-on-scroll delay-1">
                       <div className="margin-bottom margin-small">
                         <h2>Stop flipping between six tabs</h2>
                       </div>
@@ -292,7 +376,7 @@ export default function LandingPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="w-layout-grid benefits-component">
+                  <div className="w-layout-grid benefits-component animate-on-scroll">
                     {[
                       { title: 'Invoices go out the second a job closes', desc: 'Your tech marks it done. The invoice gets generated, sent to the customer, and synced to QuickBooks. Nobody touched it.' },
                       { title: 'Overdue payments get chased for you', desc: 'The right message, the right time. Lien deadlines tracked automatically. You stop being the bad guy asking for money.' },
@@ -363,7 +447,7 @@ export default function LandingPage() {
             <div className="padding-global">
               <div className="container-large">
                 <div className="padding-section-large">
-                  <div className="home-cta-component">
+                  <div className="home-cta-component animate-on-scroll">
                     <div className="text-align-center">
                       <div className="max-width-xlarge">
                         <div className="cta-accent" />
