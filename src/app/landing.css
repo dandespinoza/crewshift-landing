@@ -681,6 +681,11 @@ p {
   line-height: 1.5;
   color: #0d0d0d;
   background-color: #fff;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+}
+.page-wrapper.site-visible {
+  opacity: 1;
 }
 .page-wrapper h1, .page-wrapper h2, .page-wrapper h3,
 .page-wrapper h4, .page-wrapper h5, .page-wrapper h6 {
@@ -878,10 +883,11 @@ p {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.5s ease;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1s ease-in-out;
 }
 .splash-screen.splash-fade {
-  opacity: 0;
+  clip-path: inset(0 100% 0 0);
   pointer-events: none;
 }
 .splash-content {

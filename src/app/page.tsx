@@ -182,7 +182,7 @@ export default function LandingPage() {
         <meta name="description" content="AI agents that handle invoicing, estimates, collections, and scheduling for HVAC, plumbing, electrical, and roofing companies." />
       </Head>
 
-      <div className="page-wrapper">
+      <div className={`page-wrapper${!loading ? ' site-visible' : ''}`}>
         {/* ─── NAVBAR ─── */}
         <div className="navbar-component" role="banner">
           <div className="navbar-container">
