@@ -397,7 +397,7 @@ p {
 }
 .header-image-wrapper {
   width: 100%;
-  max-width: 56rem;
+  max-width: 64rem;
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
   border-radius: 1rem;
