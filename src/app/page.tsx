@@ -128,6 +128,7 @@ function SplashScreen({ onDone }: { onDone: () => void }) {
 export default function LandingPage() {
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
@@ -194,9 +195,26 @@ export default function LandingPage() {
               <a href="#faq" className="navbar-link">FAQs</a>
             </nav>
             <div className="navbar-button-wrapper">
-              <a href="#cta" className="button hide-mobile-portrait">Get Early Access</a>
+              <a href="#cta" className="button hide-mobile">Get Early Access</a>
+              <button
+                className="hamburger"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Menu"
+              >
+                <span className={`hamburger-line${mobileMenuOpen ? ' open' : ''}`} />
+                <span className={`hamburger-line${mobileMenuOpen ? ' open' : ''}`} />
+                <span className={`hamburger-line${mobileMenuOpen ? ' open' : ''}`} />
+              </button>
             </div>
           </div>
+          {mobileMenuOpen && (
+            <nav className="mobile-menu">
+              <a href="#features" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>Features</a>
+              <a href="#how-it-works" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
+              <a href="#faq" className="mobile-menu-link" onClick={() => setMobileMenuOpen(false)}>FAQs</a>
+              <a href="#cta" className="button" style={{ width: '100%', textAlign: 'center' }} onClick={() => setMobileMenuOpen(false)}>Get Early Access</a>
+            </nav>
+          )}
         </div>
 
         <main className="main-wrapper">
