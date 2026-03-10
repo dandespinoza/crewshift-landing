@@ -1072,6 +1072,10 @@ html {
   .hero-tag { font-size: .7rem; padding: .3rem 1rem; margin-bottom: 1rem; }
 
   .button { padding: .65rem 1.5rem; font-size: .9rem; }
+
+  .splash-content { flex-direction: column; gap: .75rem; }
+  .splash-logo { width: 36px; }
+  .splash-text { font-size: 1.1rem; letter-spacing: 0.01em; flex-wrap: wrap; justify-content: center; }
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -1116,6 +1120,10 @@ html {
 
   .navbar-logo { height: 1.5rem; }
   .button { padding: .6rem 1.25rem; font-size: .85rem; }
+
+  .splash-content { flex-direction: column; gap: .5rem; }
+  .splash-logo { width: 32px; }
+  .splash-text { font-size: .95rem; letter-spacing: 0; flex-wrap: wrap; justify-content: center; }
 
   .marquee-logo { height: 1.5rem; }
   .marquee-track { gap: 2rem; }
