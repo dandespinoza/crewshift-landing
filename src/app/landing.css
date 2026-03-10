@@ -1107,7 +1107,8 @@ html {
   .benefits-component { grid-row-gap: 1rem; grid-template-columns: 1fr; }
   .benefits-item { padding: 1.5rem; }
 
-  .home-cta-component { padding: 2rem 1.5rem; border-radius: 1.25rem; }
+  .home-cta-component { padding: 2rem 1.25rem; border-radius: 1.25rem; }
+  .home-cta-component .waitlist-form { max-width: 100%; width: 100%; padding: 1.5rem; }
 
   .waitlist-form { padding: 1.75rem; border-radius: .75rem; max-width: 100%; width: 100%; }
   .wf-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1160,7 +1161,8 @@ html {
   .benefits-item h3 { font-size: 1rem; }
   .benefits-item p { font-size: .85rem; }
 
-  .home-cta-component { text-align: center; padding: 1.25rem; border-radius: 1rem; }
+  .home-cta-component { text-align: center; padding: 1.25rem 1rem; border-radius: 1rem; }
+  .home-cta-component .waitlist-form { max-width: 100%; width: 100%; padding: 1.25rem; }
 
   .waitlist-form { padding: 1.25rem; max-width: 100%; width: 100%; }
   .wf-field input { padding: .9rem 1rem; font-size: .95rem; }
