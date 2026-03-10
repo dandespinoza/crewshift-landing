@@ -32,6 +32,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-family: sans-serif;
   height: 100%;
+  font-size: 120%;
 }
 
 body {
@@ -380,6 +381,10 @@ p {
 
 .section-home-header {
   position: relative;
+}
+.section-home-header .padding-section-large {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
 }
 .home-header-component {
   flex-direction: column;
@@ -837,6 +842,7 @@ p {
    ══════════════════════════════════════════════════════════════ */
 
 @media screen and (max-width: 991px) {
+  html { font-size: 100%; }
   .margin-xlarge { margin: 3rem; }
   .margin-large { margin: 2.5rem; }
   .margin-medium { margin: 1.5rem; }
