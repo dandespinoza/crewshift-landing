@@ -627,6 +627,9 @@ p {
   padding: 5rem;
   display: flex;
 }
+.home-cta-component > * {
+  width: 100%;
+}
 
 /* ── Footer ── */
 
