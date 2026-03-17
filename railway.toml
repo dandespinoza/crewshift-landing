@@ -1,0 +1,18 @@
+[build]
+# Railway detects the Dockerfile in each service directory automatically.
+
+[deploy]
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+# SERVICE: api (Node.js Fastify monolith)
+#   Root Directory: apps/api
+#   Health Check Path: /health
+#   Health Check Timeout: 30s
+#   Public Networking: Yes (custom domain)
+
+# SERVICE: ai-service (Python FastAPI)
+#   Root Directory: apps/ai-service
+#   Health Check Path: /ai/health
+#   Health Check Timeout: 60s
+#   Public Networking: No (private network only)

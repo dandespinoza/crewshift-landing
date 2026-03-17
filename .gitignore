@@ -1,7 +1,52 @@
+# Dependencies
 node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build output
+dist/
+build/
 .next/
 out/
-.env.local
-.env*.local
+*.js.map
 *.tsbuildinfo
 next-env.d.ts
+
+# Environment
+.env
+.env.local
+.env*.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test
+coverage/
+.nyc_output/
+htmlcov/
+.pytest_cache/
+
+# Docker
+.docker/
+
+# OS
+Thumbs.db
+
+# Drizzle
+drizzle/
+
+# Temp
+tmp/
+temp/

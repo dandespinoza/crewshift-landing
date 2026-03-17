@@ -1,11 +1,22 @@
 {
-  "name": "crewshift-landing",
-  "version": "1.0.0",
+  "name": "crewshiftai",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint",
+    "test": "pnpm -r run test",
+    "dev:api": "pnpm --filter @crewshift/api run dev",
+    "dev:web": "pnpm --filter @crewshift/web run dev",
+    "dev:admin": "pnpm --filter @crewshift/admin run dev",
+    "dev:landing": "next dev",
+    "build:api": "pnpm --filter @crewshift/api run build",
+    "build:web": "pnpm --filter @crewshift/web run build",
+    "build:admin": "pnpm --filter @crewshift/admin run build",
+    "build:landing": "next build",
+    "test:api": "pnpm --filter @crewshift/api run test",
+    "typecheck": "pnpm -r run typecheck"
   },
   "dependencies": {
     "next": "14.2.21",
@@ -17,5 +28,9 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
   }
 }

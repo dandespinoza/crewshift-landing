@@ -1,0 +1,228 @@
+/*
+ * CrewShift Admin - Dark Theme Overrides for Payload CMS
+ * Primary accent: #FF751F (orange)
+ * Background: #0A0A0A (near-black)
+ */
+
+:root {
+  --theme-bg: #0A0A0A;
+  --theme-elevation-0: #0A0A0A;
+  --theme-elevation-50: #141414;
+  --theme-elevation-100: #1E1E1E;
+  --theme-elevation-150: #262626;
+  --theme-elevation-200: #303030;
+  --theme-elevation-250: #3A3A3A;
+  --theme-elevation-300: #444444;
+  --theme-input-bg: #1E1E1E;
+  --theme-text: #FAFAFA;
+  --color-accent: #FF751F;
+
+  /* Payload CMS v3 theme variables */
+  --theme-elevation-400: #555555;
+  --theme-elevation-450: #666666;
+  --theme-elevation-500: #777777;
+  --theme-elevation-600: #888888;
+  --theme-elevation-700: #999999;
+  --theme-elevation-800: #AAAAAA;
+  --theme-elevation-900: #CCCCCC;
+  --theme-elevation-1000: #FAFAFA;
+
+  --theme-success-50: #0a2e1a;
+  --theme-success-100: #0d3f23;
+  --theme-success-500: #22c55e;
+  --theme-success-650: #16a34a;
+
+  --theme-error-50: #2e0a0a;
+  --theme-error-100: #3f0d0d;
+  --theme-error-500: #ef4444;
+  --theme-error-650: #dc2626;
+
+  --theme-warning-50: #2e1f0a;
+  --theme-warning-100: #3f2a0d;
+  --theme-warning-500: #f59e0b;
+  --theme-warning-650: #d97706;
+}
+
+/* Force dark mode */
+[data-theme="light"],
+html {
+  --theme-bg: #0A0A0A;
+  --theme-elevation-0: #0A0A0A;
+  --theme-elevation-50: #141414;
+  --theme-elevation-100: #1E1E1E;
+  --theme-elevation-150: #262626;
+  --theme-elevation-200: #303030;
+  --theme-elevation-250: #3A3A3A;
+  --theme-elevation-300: #444444;
+  --theme-input-bg: #1E1E1E;
+  --theme-text: #FAFAFA;
+}
+
+/* Global body styles */
+body {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
+}
+
+/* Accent color overrides - buttons, links, active states */
+.btn--style-primary,
+.btn--style-primary:hover {
+  background-color: #FF751F !important;
+  border-color: #FF751F !important;
+  color: #FFFFFF !important;
+}
+
+.btn--style-primary:hover {
+  background-color: #E5641A !important;
+  border-color: #E5641A !important;
+}
+
+/* Nav active state */
+.nav__link--active,
+.nav__link:hover {
+  color: #FF751F !important;
+}
+
+.nav__link--active::after {
+  background-color: #FF751F !important;
+}
+
+/* Selection and focus states */
+::selection {
+  background-color: rgba(255, 117, 31, 0.3);
+  color: #FAFAFA;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+[contenteditable]:focus {
+  border-color: #FF751F !important;
+  box-shadow: 0 0 0 2px rgba(255, 117, 31, 0.2) !important;
+}
+
+/* Checkbox and toggle accents */
+input[type="checkbox"]:checked {
+  background-color: #FF751F !important;
+  border-color: #FF751F !important;
+}
+
+/* Loading bar */
+.loading-overlay__bar {
+  background-color: #FF751F !important;
+}
+
+/* Step nav / breadcrumbs */
+.step-nav__link:hover {
+  color: #FF751F !important;
+}
+
+/* Dashboard card styling */
+.dashboard__card-list .card {
+  background-color: var(--theme-elevation-50) !important;
+  border: 1px solid var(--theme-elevation-200) !important;
+  transition: border-color 0.2s ease;
+}
+
+.dashboard__card-list .card:hover {
+  border-color: #FF751F !important;
+}
+
+/* Sidebar / nav background */
+.nav,
+.template-default__nav {
+  background-color: var(--theme-elevation-50) !important;
+  border-right: 1px solid var(--theme-elevation-200) !important;
+}
+
+/* Header */
+.app-header {
+  background-color: var(--theme-elevation-0) !important;
+  border-bottom: 1px solid var(--theme-elevation-200) !important;
+}
+
+/* Table rows */
+.table .row-1:hover,
+.cell-link:hover {
+  background-color: var(--theme-elevation-100) !important;
+}
+
+/* Pagination active */
+.paginator__page--is-current {
+  background-color: #FF751F !important;
+  color: #FFFFFF !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-elevation-0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-elevation-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-elevation-400);
+}
+
+/* Logo area branding */
+.nav__brand {
+  border-bottom: 1px solid var(--theme-elevation-200) !important;
+}
+
+/* Pill / badge accent */
+.pill--style-light-gray {
+  background-color: var(--theme-elevation-200) !important;
+}
+
+/* Rich text toolbar */
+.rich-text__toolbar {
+  background-color: var(--theme-elevation-100) !important;
+  border-bottom: 1px solid var(--theme-elevation-200) !important;
+}
+
+/* Modal overlays */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Form field labels */
+.field-label {
+  color: var(--theme-elevation-900) !important;
+}
+
+/* Toast notifications */
+.toast-container .toast--success {
+  border-left-color: var(--theme-success-500) !important;
+}
+
+.toast-container .toast--error {
+  border-left-color: var(--theme-error-500) !important;
+}
+
+/* Login page styling */
+.login {
+  background-color: var(--theme-bg) !important;
+}
+
+.login .form-submit .btn {
+  background-color: #FF751F !important;
+  border-color: #FF751F !important;
+}
+
+.login .form-submit .btn:hover {
+  background-color: #E5641A !important;
+  border-color: #E5641A !important;
+}
+
+/* Eyebrow / subtle text */
+.eyebrow {
+  color: #FF751F !important;
+}

@@ -1,0 +1,46 @@
+[project]
+name = "crewshift-ai-service"
+version = "0.1.0"
+description = "CrewShift AI Service - Multi-provider LLM inference"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.6.0",
+    "httpx>=0.28.0",
+    "anthropic>=0.40.0",
+    "openai>=1.55.0",
+    "google-genai>=1.0.0",
+    "structlog>=24.4.0",
+    "python-multipart>=0.0.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "httpx>=0.28.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+]
+
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
