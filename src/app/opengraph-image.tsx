@@ -14,143 +14,38 @@ export default async function Image() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #111111 0%, #1a1a1a 50%, #111111 100%)',
-          padding: '60px 80px',
+          background: '#111111',
           fontFamily: 'system-ui, -apple-system, sans-serif',
           position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        {/* Subtle accent glow */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '-120px',
-            right: '-120px',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)',
-            display: 'flex',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '-80px',
-            left: '-80px',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)',
-            display: 'flex',
-          }}
-        />
-
-        {/* Badge */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            marginBottom: '28px',
-          }}
-        >
-          <div
-            style={{
-              background: 'rgba(249,115,22,0.15)',
-              border: '1px solid rgba(249,115,22,0.3)',
-              borderRadius: '100px',
-              padding: '8px 20px',
-              fontSize: '18px',
-              color: '#F97316',
-              fontWeight: 600,
-              letterSpacing: '0.5px',
-              display: 'flex',
-            }}
-          >
-            AI Compliance Engine
+        {/* Logo icon — simplified geometric mark */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '40px' }}>
+          {/* Orange geometric logo mark */}
+          <svg width="72" height="80" viewBox="0 0 198 229">
+            <path fill="#ff751f" d="M 197.996094 114.773438 L 197.996094 190.769531 L 132.175781 228.765625 L 66.367188 190.769531 Z" />
+            <path fill="#ff751f" d="M 0.550781 152.769531 L 0.550781 76.773438 L 132.175781 0.78125 L 175.09375 25.558594 L 197.996094 38.773438 L 66.367188 114.773438 L 66.367188 190.769531 Z" />
+          </svg>
+          {/* CrewShift text */}
+          <div style={{ display: 'flex', fontSize: '64px', fontWeight: 800, color: '#ffffff', letterSpacing: '-1px' }}>
+            CrewShift
           </div>
         </div>
 
-        {/* Headline */}
+        {/* Tagline */}
         <div
           style={{
-            fontSize: '64px',
-            fontWeight: 800,
-            color: '#ffffff',
-            lineHeight: 1.1,
-            marginBottom: '20px',
             display: 'flex',
-            flexDirection: 'column',
+            fontSize: '32px',
+            fontWeight: 500,
+            color: 'rgba(255,255,255,0.7)',
+            textAlign: 'center',
+            lineHeight: 1.4,
           }}
         >
-          <span style={{ color: '#F97316', display: 'flex' }}>Compliance, automated.</span>
-          <span style={{ display: 'flex', marginTop: '4px' }}>Built for construction</span>
-          <span style={{ display: 'flex', marginTop: '4px' }}>& real estate.</span>
-        </div>
-
-        {/* Subtitle */}
-        <div
-          style={{
-            fontSize: '22px',
-            color: 'rgba(255,255,255,0.6)',
-            lineHeight: 1.5,
-            maxWidth: '700px',
-            display: 'flex',
-          }}
-        >
-          Upload a violation notice, get a resolution plan in seconds.
-        </div>
-
-        {/* Bottom bar */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '50px',
-            left: '80px',
-            right: '80px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <div
-            style={{
-              fontSize: '28px',
-              fontWeight: 700,
-              color: '#ffffff',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-            }}
-          >
-            <div
-              style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '8px',
-                background: '#F97316',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '20px',
-                fontWeight: 800,
-              }}
-            >
-              C
-            </div>
-            CrewShift AI
-          </div>
-          <div
-            style={{
-              fontSize: '18px',
-              color: 'rgba(255,255,255,0.4)',
-              display: 'flex',
-            }}
-          >
-            crewshiftai.com
-          </div>
+          The AI Compliance Engine for Construction & Real Estate
         </div>
       </div>
     ),
