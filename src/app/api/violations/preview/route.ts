@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import Anthropic from "@anthropic-ai/sdk";
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+function getAnthropicClient() {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const Anthropic = require("@anthropic-ai/sdk").default;
+  return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+}
 
 const PREVIEW_SYSTEM_PROMPT = `You are an expert NYC building compliance analyst. You extract key information from violation notices and provide a high-level assessment.
 
@@ -104,7 +105,8 @@ export async function POST(request: NextRequest) {
     const base64Data = buffer.toString("base64");
 
     // Build the user message — image + optional context from user
-    const userContent: Anthropic.Messages.ContentBlockParam[] = [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const userContent: any[] = [
       {
         type: "image",
         source: {
@@ -121,6 +123,7 @@ export async function POST(request: NextRequest) {
       },
     ];
 
+    const anthropic = getAnthropicClient();
     const message = await anthropic.messages.create({
       model: "claude-sonnet-4-20250514",
       max_tokens: 1024,
