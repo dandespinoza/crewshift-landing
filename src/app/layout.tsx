@@ -5,8 +5,8 @@ import './globals.css';
 import './landing.css';
 
 export const metadata: Metadata = {
-  title: 'CrewShift — AI Agents for Trade Businesses',
-  description: 'AI agents that handle invoicing, estimates, collections, and scheduling for HVAC, plumbing, electrical, and roofing companies.',
+  title: 'CrewShift — The AI Compliance Engine for Construction & Real Estate',
+  description: 'Upload a violation notice, get a resolution plan in seconds. AI-powered compliance platform for property owners, managers, contractors, and developers.',
 };
 
 export default function RootLayout({
