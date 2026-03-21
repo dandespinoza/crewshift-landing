@@ -7,6 +7,18 @@ import './landing.css';
 export const metadata: Metadata = {
   title: 'CrewShift — The AI Compliance Engine for Construction & Real Estate',
   description: 'Upload a violation notice, get a resolution plan in seconds. AI-powered compliance platform for property owners, managers, contractors, and developers.',
+  metadataBase: new URL('https://crewshiftai.com'),
+  openGraph: {
+    title: 'CrewShift — The AI Compliance Engine for Construction & Real Estate',
+    description: 'Upload a violation notice, get a resolution plan in seconds.',
+    siteName: 'CrewShift AI',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CrewShift — The AI Compliance Engine for Construction & Real Estate',
+    description: 'Upload a violation notice, get a resolution plan in seconds.',
+  },
 };
 
 export default function RootLayout({

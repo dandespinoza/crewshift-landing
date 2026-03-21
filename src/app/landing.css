@@ -3270,6 +3270,10 @@ html { scroll-behavior: smooth; }
   align-items: start;
   min-height: calc(100vh - 64px);
 }
+.lp-demo-main.lp-demo-loaded {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 
 .lp-demo-badge {
   display: inline-flex;

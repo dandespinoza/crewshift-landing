@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../landing.css';
 
 const COMPANY_SIZES = [
@@ -29,6 +29,12 @@ export default function BookDemoPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoaded(true), 50);
+    return () => clearTimeout(t);
+  }, []);
 
   const update = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -71,7 +77,7 @@ export default function BookDemoPage() {
         </div>
       </nav>
 
-      <main className="lp-demo-main">
+      <main className={`lp-demo-main ${loaded ? 'lp-demo-loaded' : ''}`} style={{ opacity: 0, transform: 'translateY(16px)', transition: 'opacity 0.6s ease, transform 0.6s ease' }}>
         {/* Left column */}
         <div className="lp-demo-left">
           <span className="lp-demo-badge">Limited Early Access</span>
